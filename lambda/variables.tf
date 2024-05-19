@@ -5,7 +5,6 @@ variable "aws_region" {
 }
 
 variable "lambda_file_name" {
-  default     = "app"
   type        = string
   description = "Name of the lambda function file"
 }
@@ -18,6 +17,11 @@ variable "lambda_file_extention" {
     condition     = var.lambda_file_extention == ".py"
     error_message = "the file has to be Python file"
   }
+}
+
+variable "lambda_source_file_path" {
+  type = string
+  description = "The path to the lambda source file without the file name"
 }
 
 variable "lambda_function_name" {
@@ -46,16 +50,4 @@ variable "lambda_permission_name" {
   default     = "lambda-permissions"
   type        = string
   description = "The name of the ami role policy for accessing the lambda"
-}
-
-variable "file_type" {
-  default     = "zip"
-  type        = string
-  description = "The type of file for uploading to AWS lambda"
-}
-
-variable "output_path" {
-  default     = "lambda.zip"
-  type        = string
-  description = "The name of converted file"
 }
