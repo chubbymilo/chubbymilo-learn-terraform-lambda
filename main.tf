@@ -11,8 +11,8 @@ terraform {
   }
 }
 
-module "python_lambda" {    
-  source = "./lambda"
+module "python_lambda" {
+  source                  = "./lambda"
   lambda_source_file_path = "./"
-  lambda_file_name = "app"
+  lambda_file_name        = "app"
 }

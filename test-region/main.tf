@@ -15,5 +15,5 @@ module "python_lambda" {
   source                  = "../lambda"
   aws_region              = "us-west-1"
   lambda_source_file_path = "../"
-  lambda_file_name = "app"
+  lambda_file_name        = "app"
 }

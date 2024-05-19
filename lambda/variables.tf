@@ -20,7 +20,7 @@ variable "lambda_file_extention" {
 }
 
 variable "lambda_source_file_path" {
-  type = string
+  type        = string
   description = "The path to the lambda source file without the file name"
 }
 
