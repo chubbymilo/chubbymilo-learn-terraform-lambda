@@ -1,8 +1,5 @@
 terraform {
   required_version = ">= 1.2.0"
-}
-
-terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -33,3 +30,13 @@ resource "aws_dynamodb_table" "terraform_locks" {
     type = "S"
   }
 }
+
+# terraform {
+#   backend "s3" {
+#     # replace with your bucket name, region and dynamob table name
+#     bucket         = "my-tf-test-bucket20240521104706254600000001"
+#     key            = "global/s3/terraform-bucket.tfstate"
+#     region         = "us-west-1"
+#     dynamodb_table = "terraform-up-and-running-locks"
+#   }
+# }
