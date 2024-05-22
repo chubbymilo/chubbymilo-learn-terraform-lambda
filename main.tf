@@ -31,6 +31,31 @@ resource "aws_dynamodb_table" "terraform_locks" {
   }
 }
 
+resource "aws_kms_key" "my_first_key" {
+  description             = "This key is used to encrypt bucket objects"
+  deletion_window_in_days = 10
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "my_bucket_encryption" {
+  bucket = aws_s3_bucket.my_s3_bucket_jz.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.my_first_key.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "my_bucket_public_access_block" {
+  bucket = aws_s3_bucket.my_s3_bucket_jz.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
 # terraform {
 #   backend "s3" {
 #     # replace with your bucket name, region and dynamob table name
