@@ -17,6 +17,10 @@ export AWS_SECRET_ACCESS_KEY=
 Navigate to the root directory
 
 ``
+terraform init
+``
+
+``
 terraform apply
 ``
 
@@ -29,6 +33,10 @@ terraform show
 Replace the bucket name in the backend block under environment/test-west-region1/main.tf
 
 Spin up the Python lambda in environment/test-west-region1 directory with
+
+``
+terraform init
+``
 
 ``
 terraform apply
