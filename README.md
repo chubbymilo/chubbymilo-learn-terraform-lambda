@@ -1,4 +1,4 @@
-# A learning project of terraform to deploy an S3 bucket and use it to store states of deploying a simple Python lambda in different regions.
+# A learning project of terraform to deploy an S3 bucket and use it to store states of a simple Python lambda.
 
 ## Set up AWS access
 ----
