@@ -13,3 +13,8 @@ resource "aws_lambda_function" "lambda" {
   source_code_hash = data.archive_file.lambda.output_base64sha256
   runtime          = var.lambda_run_time
 }
+
+resource "aws_lambda_function_url" "test_url" {
+  function_name      = aws_lambda_function.lambda.function_name
+  authorization_type = "NONE"
+}
