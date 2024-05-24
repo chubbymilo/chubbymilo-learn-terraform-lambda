@@ -1,9 +1,3 @@
-variable "aws_region" {
-  default     = "us-west-2"
-  type        = string
-  description = "Region to use for AWS services"
-}
-
 variable "lambda_file_name" {
   type        = string
   description = "Name of the lambda function file"

@@ -1,20 +1,31 @@
 terraform {
   required_version = ">= 1.2.0"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "5.50.0"
     }
   }
+
+  #   backend "s3" {
+  #   # replace with your bucket name, region and dynamob table name
+  #   bucket         = "my-tf-test-bucket20240521104706254600000001"
+  #   key            = "global/s3/terraform-bucket.tfstate"
+  #   region         = "us-west-1"
+  #   dynamodb_table = "terraform-up-and-running-locks"
+  # }
 }
 
 provider "aws" {
   region = var.aws_region
 }
 
+# TODO: Should turn the creation of S3 into a module
 resource "aws_s3_bucket" "my_s3_bucket_jz" {
   bucket_prefix = "my-tf-test-bucket"
   force_destroy = true
+
   tags = {
     Name = "My bucket"
   }
@@ -55,13 +66,3 @@ resource "aws_s3_bucket_public_access_block" "my_bucket_public_access_block" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
-# terraform {
-#   backend "s3" {
-#     # replace with your bucket name, region and dynamob table name
-#     bucket         = "my-tf-test-bucket20240521104706254600000001"
-#     key            = "global/s3/terraform-bucket.tfstate"
-#     region         = "us-west-1"
-#     dynamodb_table = "terraform-up-and-running-locks"
-#   }
-# }
