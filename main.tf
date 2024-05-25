@@ -7,7 +7,7 @@ terraform {
       version = "5.50.0"
     }
   }
-
+  # To store the S3's file in S3 if required
   #   backend "s3" {
   #   # replace with your bucket name, region and dynamob table name
   #   bucket         = "my-tf-test-bucket20240521104706254600000001"

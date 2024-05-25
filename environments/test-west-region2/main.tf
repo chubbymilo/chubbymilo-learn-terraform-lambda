@@ -9,8 +9,6 @@ terraform {
   }
 
   backend "s3" {
-    # replace with your bucket name, region and dynamob table name
-    bucket         = "my-tf-test-bucket20240524075926801900000001"
     key            = "global/s3/terraform-west2.tfstate"
     region         = "us-west-1"
     dynamodb_table = "terraform-up-and-running-locks"
