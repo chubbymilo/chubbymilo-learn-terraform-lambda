@@ -11,7 +11,7 @@ run "lambda_is_running" {
   command = plan
 
   module {
-    source = "./tests/check"
+    source = "../../helper/check"
   }
 
   variables {
