@@ -12,6 +12,19 @@ export AWS_ACCESS_KEY_ID=
 ``
 export AWS_SECRET_ACCESS_KEY=
 ``
+## Testing before deployment
+
+In US-West-1
+
+``
+./run.sh west-region1 test
+``
+
+In US-West-2
+
+``
+./run.sh west-region2 test
+``
 
 ## Deploying a lambda and use S3 bucket to store states
 
